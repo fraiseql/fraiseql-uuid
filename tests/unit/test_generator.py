@@ -1,6 +1,7 @@
 """Tests for UUIDGenerator class."""
 
 import pytest
+
 from fraiseql_uuid import Pattern, UUIDGenerator
 
 
@@ -101,7 +102,7 @@ class TestUUIDGeneratorGenerate:
         generator = UUIDGenerator(pattern, table_code="012345")
 
         with pytest.raises(TypeError):
-            generator.generate()
+            generator.generate()  # ty: ignore[missing-argument] — the call under test
 
     def test_generate_sequential_instances(self) -> None:
         """Test generating UUIDs with sequential instances."""

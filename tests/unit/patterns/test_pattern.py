@@ -1,6 +1,7 @@
 """Tests for Pattern class."""
 
 import pytest
+
 from fraiseql_uuid.patterns import Pattern
 
 

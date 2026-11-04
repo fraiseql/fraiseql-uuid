@@ -1,6 +1,7 @@
 """Tests for UUIDDecoder class."""
 
 import pytest
+
 from fraiseql_uuid import Pattern, UUIDDecoder
 
 

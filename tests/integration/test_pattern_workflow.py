@@ -1,6 +1,7 @@
 """Integration tests for full UUID pattern workflow."""
 
 import pytest
+
 from fraiseql_uuid import (
     Pattern,
     UUIDCache,
@@ -131,6 +132,7 @@ class TestWorkflowWithCache:
             cache.set("users", instance, uuid)
 
             cached_uuid = cache.get("users", instance)
+            assert cached_uuid is not None
             validation_result = validator.validate(cached_uuid)
             assert validation_result.valid is True
 
@@ -378,5 +380,6 @@ class TestEdgeCaseWorkflows:
 
             # Retrieve and decode
             cached_uuid = cache.get("items", instance)
+            assert cached_uuid is not None
             decoded = decoder.decode(cached_uuid)
             assert decoded["instance"] == instance

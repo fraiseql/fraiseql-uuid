@@ -34,10 +34,9 @@ cli = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/fraiseql/fraiseql-seed"
-Documentation = "https://fraiseql-seed.readthedocs.io"
-Repository = "https://github.com/fraiseql/fraiseql-seed"
-"Bug Tracker" = "https://github.com/fraiseql/fraiseql-seed/issues"
+Homepage = "https://github.com/fraiseql/fraiseql-uuid"
+Repository = "https://github.com/fraiseql/fraiseql-uuid"
+"Bug Tracker" = "https://github.com/fraiseql/fraiseql-uuid/issues"
 
 [project.scripts]
 fraiseql-uuid = "fraiseql_uuid.cli.main:cli [cli]"
@@ -48,3 +47,31 @@ build-backend = "hatchling.build"
 
 [tool.hatch.build.targets.wheel]
 packages = ["src/fraiseql_uuid"]
+
+[dependency-groups]
+dev = [
+    "pytest>=8.0.0",
+    "pytest-cov>=4.1.0",
+    "ruff>=0.1.0",
+    "ty>=0.0.7",
+]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "W", "F", "I", "B", "C4", "UP", "ARG", "SIM", "TCH", "PTH", "ERA", "PL", "RUF", "PERF", "FURB"]
+ignore = [
+    "PLC0415",  # import-outside-top-level — lazy imports are intentional (optional deps, CLI)
+    "PLR0912",  # too-many-branches — CLI handlers are naturally branchy
+    "PLR0913",  # too-many-arguments — Click commands have many parameters by design
+    "PLR0915",  # too-many-statements — CLI handlers are naturally long
+    "PLR0917",  # too-many-positional-arguments — Click passes every option as one
+]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/**" = ["PLR2004", "ARG001"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
