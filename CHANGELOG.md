@@ -6,6 +6,8 @@ All notable changes to fraiseql-uuid are recorded here. The format follows
 
 ## [Unreleased]
 
+## [0.1.4] - 2026-11-05
+
 ### Changed
 
 - fraiseql-uuid is developed and released from its own repository,
