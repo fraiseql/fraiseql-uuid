@@ -6,6 +6,11 @@ All notable changes to fraiseql-uuid are recorded here. The format follows
 
 ## [Unreleased]
 
+### Fixed
+
+- `fraiseql_uuid.__version__` is the installed distribution's version. It said
+  `0.1.0` since 0.1.0, whatever version was installed.
+
 ## [0.1.4] - 2026-11-05
 
 ### Changed
